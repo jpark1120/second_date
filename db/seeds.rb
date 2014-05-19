@@ -6,7 +6,20 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.delete_all
+# User.delete_all
+Spot.delete_all
 
+@array = Spot.explore
 
-# @array = Spot.explore
+@array.each do |restaurant|
+
+Spot.create({
+    name: restaurant["venue"]["name"],
+    address: restaurant["venue"]["location"]["address"],
+    description: restaurant["tips"][0]["text"],
+    rating: restaurant["venue"]["rating"],
+    price: restaurant["venue"]["price"]["tier"],
+    hours: restaurant["venue"]["hours"]["status"]
+    })
+
+end
