@@ -1,0 +1,17 @@
+<h1>Second Date</h1>
+
+<ul>
+	<% @array.each do |restaurant| %>
+		<li>Name: <%= restaurant["venue"]["name"] %></li>
+		<li>Rating: <%= restaurant["venue"]["rating"] %></li>
+		<li>Price: <%= restaurant["venue"]["price"]["tier"] %></li>
+		<% restaurant["tips"].each do |tip| %>
+			<li>Tip: <%= tip["text"] %></li>
+		<% end %>
+		<% restaurant["venue"]["categories"].each do |type| %>
+			<li>Type: <%= type["name"] %></li>
+		<% end %>
+
+		<br />
+	<% end %>
+</ul>
