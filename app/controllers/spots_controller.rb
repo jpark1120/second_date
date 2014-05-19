@@ -5,7 +5,7 @@ class SpotsController < ApplicationController
 
 	def index
 
-		@array = Spot.explore
+		@spots = Spot.all
 		
 
 		# @user = current_user

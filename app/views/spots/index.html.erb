@@ -1,17 +1,16 @@
-<h1>Second Date</h1>
+<h1>Hot Date Spots of East Village</h1>
 
 <ul>
-	<% @array.each do |restaurant| %>
-		<li>Name: <%= restaurant["venue"]["name"] %></li>
-		<li>Rating: <%= restaurant["venue"]["rating"] %></li>
-		<li>Price: <%= restaurant["venue"]["price"]["tier"] %></li>
-		<% restaurant["tips"].each do |tip| %>
-			<li>Tip: <%= tip["text"] %></li>
-		<% end %>
-		<% restaurant["venue"]["categories"].each do |type| %>
-			<li>Type: <%= type["name"] %></li>
-		<% end %>
+	<% @spots.each do |spot| %>
+		<li><%= link_to spot.name, "/spots/#{spot.id}" %></li>
+		<li>Spot: <%= spot.name %></li>
 
-		<br />
 	<% end %>
 </ul>
+
+
+<%#= spot.rating %>
+<%#= spot.description %>
+<%#= spot.address %>
+<%#= spot.price %>
+<%#= spot.hours %>
