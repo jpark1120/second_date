@@ -16,10 +16,15 @@ Spot.delete_all
 Spot.create({
     name: restaurant["venue"]["name"],
     address: restaurant["venue"]["location"]["address"],
-    description: restaurant["tips"][0]["text"],
+    description: restaurant["venue"]["categories"][0]["name"],
     rating: restaurant["venue"]["rating"],
     price: restaurant["venue"]["price"]["tier"],
-    hours: restaurant["venue"]["hours"]["status"]
+    hours: restaurant["venue"]["hours"]["status"],
+    tip: restaurant["tips"][0]["text"]
     })
 
 end
+
+# restaurant["venue"]["categories"].each do |type|
+# 	 type["name"]
+# end

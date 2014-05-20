@@ -1,0 +1,20 @@
+<h1><%= @spot.name %></h1>
+
+
+<ul>
+	<li><%= @spot.rating %></li>
+	<li><%= @spot.description %></li>
+	<li><%= @spot.address %></li>
+	<li><%= @spot.price %></li>
+	<li><%= @spot.hours %></li>
+</ul>
+
+
+<%= current_user.username %> <%= current_user.id %>
+
+<%= link_to "Back", spots_path %>
+
+
+
+
+<%= link_to "like", :action => "add_like" %>

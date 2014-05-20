@@ -31,6 +31,23 @@ class Spot < ActiveRecord::Base
 
 end
 
+
+
+
+# def add_portion(quantity, unit_name, ingredient_name)
+#     #
+#     ingredient = Ingredient.find_by_name(ingredient_name)
+
+#     # if ingredient is found...
+#     if ingredient
+#       # get this instance of recipe's own portions
+#       self.portions << Portion.create({
+
+
+
+
+
+
 # venues = jsonresponse["response"]["groups"][0]["items"][5]["tips"][0]["text"]
 
 # || venue["tips"]["likes"]["count"] > 200

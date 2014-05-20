@@ -3,14 +3,12 @@
 <ul>
 	<% @spots.each do |spot| %>
 		<li><%= link_to spot.name, "/spots/#{spot.id}" %></li>
-		<li>Spot: <%= spot.name %></li>
-
+		<ul>
+			<li>Type: <%= spot.description %></li>
+			<li>Tip: <%= spot.tip %></li>
+		</ul>
 	<% end %>
 </ul>
 
 
-<%#= spot.rating %>
-<%#= spot.description %>
-<%#= spot.address %>
-<%#= spot.price %>
-<%#= spot.hours %>
+
