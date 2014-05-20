@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # User.delete_all
+# Flag.delete_all
 Spot.delete_all
 
 @array = Spot.explore
