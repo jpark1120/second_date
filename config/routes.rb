@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 	resources :users
 	resources :sessions
 	resources :spots
+	resources :flags
 	resources :comments
 
 

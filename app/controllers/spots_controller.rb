@@ -14,35 +14,13 @@ class SpotsController < ApplicationController
 
 		@spot = Spot.find(params[:id])
 
+		@flags = Flag.new
+
 		@comments = Comment.new
 
 	end
 
-  def mod_flag
-  	spot = Spot.find(params[:spot_id])
-		
-  	if spot.flags.empty? == true
-			Flag.create({
-	      spot_id: params[:spot_id],
-	      user_id: params[:user_id],
-	      first_date: "true"
-	    })
-	    flash[:notice] = "Liked!"
-	  elsif spot.flags.empty? != true
-			intersection = spot.flags.ids & current_user.flags.ids
-			if intersection.empty? == false
-					flash[:notice] = "Already Liked!"
-			else
-				Flag.create({
-		      spot_id: params[:spot_id],
-		      user_id: params[:user_id],
-		      first_date: "true"
-		    })
-		    flash[:notice] = "Liked!"
-		  end
-	  end
-	  redirect_to "/spots/#{params[:spot_id]}"
-  end
+
 
 end
 

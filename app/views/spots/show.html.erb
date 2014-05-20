@@ -2,8 +2,12 @@
 
 <h2>LIKES: <%= @spot.flags.size %></h2>
 
-
-<%= link_to "LIKE", :action => "mod_flag", :user_id => "#{current_user.id}", :spot_id => "#{@spot.id}" %>
+<%= form_for @flags do |f| %>
+  <%= f.hidden_field :first_date, { value: "true" } %>
+  <%= f.hidden_field :user_id, { value: current_user.id } %>
+  <%= f.hidden_field :spot_id, { value: @spot.id } %>
+  <%= f.submit "LIKE" %>
+<% end %>
 
 <%= flash.notice %>
 
@@ -19,25 +23,33 @@
 <%= link_to "Back", spots_path %>
 
 <h3>COMMENTS</h3>
-<p><%= @spot.comments[0].opinion %><p>
-<p><%= @spot.comments[1].opinion %><p>
+<% @spot.comments.each do |chatter| %>
+	<p><%= chatter.opinion %></p>
+<% end %>
+
+
+
+
+<%#= @spot.comments[0].opinion %>
+<%#= @spot.comments[1].opinion %>
 
 
 <%= form_for @comments do |f| %>
-  <%= f.text_area :opinion, { placeholder: "Comments" } %>
+  <p><%= f.text_area :opinion, { placeholder: "Comments", size: "35x15" } %></p>
   <%= f.hidden_field :user_id, { value: current_user.id } %>
   <%= f.hidden_field :spot_id, { value: @spot.id } %>
-  <%= f.submit %>
+  <p><%= f.submit %></p>
 <% end %>
-
-  
-
-
-
 
 <ul>
 	<% @spot.flags.each do |flag| %>
 		<li><%= flag.user.username %></li>
 	<% end %>
 </ul>			
+
+
+<%#= link_to "LIKE", :action => "mod_flag", :user_id => "#{current_user.id}", :spot_id => "#{@spot.id}" %>
+
+
+
 

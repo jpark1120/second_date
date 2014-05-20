@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
 	def create
 		Comment.create(comment_attributes)
 
-		redirect_to "/spots/#{params[:spot_id]}"
+		redirect_to "/spots/#{comment_attributes[:spot_id]}"
 	end
 
 
