@@ -1,5 +1,6 @@
 <h1><%= @spot.name %></h1>
 
+<h2>LIKES: <%= @spot.flags.size %></h2>
 
 <ul>
 	<li><%= @spot.rating %></li>
@@ -17,4 +18,5 @@
 
 
 
-<%= link_to "like", :action => "add_like" %>
+<%= link_to "like", :action => "mod_flag", :user_id => "#{current_user.id}", :spot_id => "#{@spot.id}" %>
+

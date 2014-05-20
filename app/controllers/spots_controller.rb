@@ -19,19 +19,17 @@ class SpotsController < ApplicationController
 	end
 
 
-  def add_like
+  def mod_flag
     # if first_date: params[:first_date] == true
-    # render: "like"
-		spot = Spot.find(params[:id])
 
-    spot.add_like
-      # Flag.create({
-      #   spot_id: params[:spot_id],
-      #   user_id: params[:user_id],
-      #   first_date: "true"
-      # })
+      Flag.create({
+        spot_id: params[:spot_id],
+        user_id: params[:user_id],
+        first_date: "true"
+      })
     # else
     # end
+    redirect_to "/spots/#{params[:spot_id]}"
   end
 
 	# def update

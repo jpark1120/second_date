@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 	# routes for spots
 	# get "/spots" => "spots#index"
 
-	get "/spots/:id/add_like" => "spots#add_like"
+	get "/spots/mod_flag" => "spots#mod_flag"
 
 	get "log_out" => "sessions#destroy", :as => "log_out"
 	get "log_in" => "sessions#new", :as => "log_in"
