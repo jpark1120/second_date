@@ -2,25 +2,39 @@
 
 <h2>LIKES: <%= @spot.flags.size %></h2>
 
+
+<%= link_to "LIKE", :action => "mod_flag", :user_id => "#{current_user.id}", :spot_id => "#{@spot.id}" %>
+
+<%= flash.notice %>
+
 <ul>
-	<li><%= @spot.rating %></li>
-	<li><%= @spot.description %></li>
-	<li><%= @spot.address %></li>
-	<li><%= @spot.price %></li>
-	<li><%= @spot.hours %></li>
+	<li>Rating: <%= @spot.rating %></li>
+	<li>Category: <%= @spot.description %></li>
+	<li>Address: <%= @spot.address %></li>
+	<li>Price Rank: <%= @spot.price %> (1 = $10, 2 = $20, 3 = $30, 4 = $40 per person)</li>
+	<li>Hours: <%= @spot.hours %></li>
 </ul>
 
 
-<%= current_user.username %> <%= current_user.id %>
-
 <%= link_to "Back", spots_path %>
 
+<h3>COMMENTS</h3>
+<p><%= @spot.comments[0].opinion %><p>
+<p><%= @spot.comments[1].opinion %><p>
+
+
+<%= form_for @comments do |f| %>
+  <%= f.text_area :opinion, { placeholder: "Comments" } %>
+  <%= f.hidden_field :user_id, { value: current_user.id } %>
+  <%= f.hidden_field :spot_id, { value: @spot.id } %>
+  <%= f.submit %>
+<% end %>
+
+  
 
 
 
-<%= link_to "like", :action => "mod_flag", :user_id => "#{current_user.id}", :spot_id => "#{@spot.id}" %>
 
-<%= flash.notice %>
 <ul>
 	<% @spot.flags.each do |flag| %>
 		<li><%= flag.user.username %></li>

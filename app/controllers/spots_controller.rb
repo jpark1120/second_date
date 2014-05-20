@@ -6,30 +6,25 @@ class SpotsController < ApplicationController
 	def index
 
 		@spots = Spot.all
-		
 
-		# @user = current_user
-	
 	end
+
 
 	def show
 
 		@spot = Spot.find(params[:id])
 
+		@comments = Comment.new
+
 	end
 
-
-
   def mod_flag
-  	@id_spot = params[:spot_id]
-  	@id_user = params[:user_id]
-
-  	spot = Spot.find(@id_spot)
+  	spot = Spot.find(params[:spot_id])
 		
   	if spot.flags.empty? == true
 			Flag.create({
-	      spot_id: "#{@id_spot}",
-	      user_id: "#{@id_user}",
+	      spot_id: params[:spot_id],
+	      user_id: params[:user_id],
 	      first_date: "true"
 	    })
 	    flash[:notice] = "Liked!"
@@ -39,17 +34,19 @@ class SpotsController < ApplicationController
 					flash[:notice] = "Already Liked!"
 			else
 				Flag.create({
-		      spot_id: "#{@id_spot}",
-		      user_id: "#{@id_user}",
+		      spot_id: params[:spot_id],
+		      user_id: params[:user_id],
 		      first_date: "true"
 		    })
 		    flash[:notice] = "Liked!"
 		  end
 	  end
-	  redirect_to "/spots/#{@id_spot}"
+	  redirect_to "/spots/#{params[:spot_id]}"
   end
 
 end
+
+
 
 	# current_flag = flag.new()
 	# current_flag.spot_id = @spot.id
@@ -72,7 +69,3 @@ end
 			# 	else 
 			# 		puts "Whatever"
 			# end
-
-
-
-
