@@ -20,3 +20,10 @@
 
 <%= link_to "like", :action => "mod_flag", :user_id => "#{current_user.id}", :spot_id => "#{@spot.id}" %>
 
+<%= flash.notice %>
+<ul>
+	<% @spot.flags.each do |flag| %>
+		<li><%= flag.user.username %></li>
+	<% end %>
+</ul>			
+

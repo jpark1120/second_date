@@ -20,29 +20,59 @@ class SpotsController < ApplicationController
 
 
   def mod_flag
-    # if first_date: params[:first_date] == true
+  	@id_spot = params[:spot_id]
+  	@id_user = params[:user_id]
 
-      Flag.create({
-        spot_id: params[:spot_id],
-        user_id: params[:user_id],
-        first_date: "true"
-      })
-    # else
-    # end
-    redirect_to "/spots/#{params[:spot_id]}"
+  	spot = Spot.find(@id_spot)
+		
+  	if spot.flags[0] != nil
+			spot.flags.each do |flag| 
+				if current_user == flag.user
+					puts "Already Liked!"
+					flash[:notice] = "Already Liked!"
+				else
+					Flag.create({
+			      spot_id: "#{@id_spot}",
+			      user_id: "#{@id_user}",
+			      first_date: "true"
+			    })
+			    flash[:notice] = "Liked!"
+			  end
+	  	end
+  	else
+			Flag.create({
+	      spot_id: "#{@id_spot}",
+	      user_id: "#{@id_user}",
+	      first_date: "true"
+	    })
+	    flash[:notice] = "Liked!"
+	  end
+  	redirect_to "/spots/#{@id_spot}"
   end
 
-	# def update
-
-	# 	@spot = Spot.find(params[:id])
-
-	# 	@spot.vote
-
-	# 	redirect_to spots_path
-
-	# end
 
 end
+	# current_flag = flag.new()
+	# current_flag.spot_id = @spot.id
+	# current_flag.user_id = @user.id
+	# current_flag.save
+
+
+
+			# case flag
+			# 	when current_user.id != flag.user.id
+			# 		Flag.create({
+			#       spot_id: "#{@id_spot}",
+			#       user_id: "#{@id_user}",
+			#       first_date: "true"
+			#     })
+			#     flash[:notice] = "Liked!"
+			#   when current_user.id == flag.user.id
+			#   	puts "Already Liked!"
+			# 		flash[:notice] = "Already Liked!"
+			# 	else 
+			# 		puts "Whatever"
+			# end
 
 
 
