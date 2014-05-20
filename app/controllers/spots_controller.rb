@@ -19,39 +19,38 @@ class SpotsController < ApplicationController
 	end
 
 
+
   def mod_flag
   	@id_spot = params[:spot_id]
   	@id_user = params[:user_id]
 
   	spot = Spot.find(@id_spot)
 		
-  	if spot.flags[0] != nil
-			spot.flags.each do |flag| 
-				if current_user == flag.user
-					puts "Already Liked!"
-					flash[:notice] = "Already Liked!"
-				else
-					Flag.create({
-			      spot_id: "#{@id_spot}",
-			      user_id: "#{@id_user}",
-			      first_date: "true"
-			    })
-			    flash[:notice] = "Liked!"
-			  end
-	  	end
-  	else
+  	if spot.flags.empty? == true
 			Flag.create({
 	      spot_id: "#{@id_spot}",
 	      user_id: "#{@id_user}",
 	      first_date: "true"
 	    })
 	    flash[:notice] = "Liked!"
+	  elsif spot.flags.empty? != true
+			intersection = spot.flags.ids & current_user.flags.ids
+			if intersection.empty? == false
+					flash[:notice] = "Already Liked!"
+			else
+				Flag.create({
+		      spot_id: "#{@id_spot}",
+		      user_id: "#{@id_user}",
+		      first_date: "true"
+		    })
+		    flash[:notice] = "Liked!"
+		  end
 	  end
-  	redirect_to "/spots/#{@id_spot}"
+	  redirect_to "/spots/#{@id_spot}"
   end
 
-
 end
+
 	# current_flag = flag.new()
 	# current_flag.spot_id = @spot.id
 	# current_flag.user_id = @user.id

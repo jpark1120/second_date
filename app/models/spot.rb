@@ -3,7 +3,7 @@ class Spot < ActiveRecord::Base
 
 	has_many :flags
 
-	has_many :users, through: :comments
+	# has_many :users, through: :comments
 
 	has_many :comments
 
