@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
 	has_many :flags
 
-	# has_many :spots, through: :comments
+	has_many :spots, through: :comments
 
 	has_many :comments
 
