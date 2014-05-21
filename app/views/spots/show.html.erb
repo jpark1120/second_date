@@ -2,7 +2,15 @@
 
 <img src="<%= @address %>" />
 
-<h2>VOTES: <%= @spot.flags.size %></h2>
+<h2>Total Votes: <%= @spot.flags.size %></h2>
+
+<h3>Peer Evaluation of <%= @spot.name %></h3>
+<ul>
+	<li>First Date: <%= @spot.flags.where(first_date:true).size %></li>
+	<li>Second Date: <%= @spot.flags.where(second_date:true).size %></li>
+	<li>Third Date: <%= @spot.flags.where(third_date:true).size %></li>
+	<li>Fourth Date: <%= @spot.flags.where(bad_date:true).size %></li>
+</ul>
 <h3><%= flash.notice %></h3>
 
 <!-- first_date -->

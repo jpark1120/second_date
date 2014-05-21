@@ -7,8 +7,6 @@ class SpotsController < ApplicationController
 
 		@spots = Spot.all
 
-		# @first_date_spots = @spots.flag
-
 	end
 
 
@@ -19,7 +17,7 @@ class SpotsController < ApplicationController
 		@address = Spot.static_map(@spot.address)
 
 		@flags = Flag.new
-		
+
 
 		@comments = Comment.new
 

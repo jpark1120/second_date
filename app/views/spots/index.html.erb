@@ -4,6 +4,7 @@
 	<% @spots.each do |spot| %>
 		<li><%= link_to spot.name, "/spots/#{spot.id}" %></li>
 		<ul>
+			<li><%= spot.categorize %></li>
 			<li>Type: <%= spot.description %></li>
 			<li>Tip: <%= spot.tip %></li>
 		</ul>
