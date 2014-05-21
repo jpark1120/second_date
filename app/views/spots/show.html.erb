@@ -2,10 +2,6 @@
 
 <img src="<%= @address %>" />
 
-<!-- <img src="http://maps.googleapis.com/maps/api/staticmap?center=#{@spot.address.gsub(' ', '+')},+New+York,NY&size=400x400&key=#{GOOGLE_STATIC_KEY}" />
- -->
-
-
 <h2>LIKES: <%= @spot.flags.size %></h2>
 
 <%= form_for @flags, url: "/spots/:spot_id/flags" do |f| %>
