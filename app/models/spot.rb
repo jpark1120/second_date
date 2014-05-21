@@ -30,10 +30,11 @@ class Spot < ActiveRecord::Base
   end
 
   def self.static_map(address)
-    url = "http://maps.googleapis.com/maps/api/staticmap?center=#{address.gsub(' ', '+')},New+York,NY&size=200x200&scale=2&key=#{GOOGLE_STATIC_KEY}"
+    url = "http://maps.googleapis.com/maps/api/staticmap?size=200x200&scale=2&markers=color:red|#{address.gsub(' ', '+')},,New+York,NY|&key=#{GOOGLE_STATIC_KEY}"
   end
 
 end
+
 
 #{@spot.address.gsub(' ', '+')}
 
