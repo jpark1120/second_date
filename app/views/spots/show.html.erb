@@ -10,7 +10,7 @@
 <% end %>
 
 <%= flash.notice %>
-
+<%= link_to "Back", spots_path %>
 <ul>
 	<li>Rating: <%= @spot.rating %></li>
 	<li>Category: <%= @spot.description %></li>
@@ -19,26 +19,25 @@
 	<li>Hours: <%= @spot.hours %></li>
 </ul>
 
-
-<%= link_to "Back", spots_path %>
-
-<h3>COMMENTS</h3>
-<% @spot.comments.each do |chatter| %>
-	<p><%= chatter.opinion %></p>
+<!-- Create Comment -->
+<%= form_tag new_comment_path, method: "GET" do %>
+	<%= hidden_field_tag(:user_id, "#{current_user.id}") %>
+	<%= hidden_field_tag(:spot_id, "#{@spot.id}") %>
+	<%= submit_tag "Leave a Comment" %>
 <% end %>
 
 
-
-
-<%#= @spot.comments[0].opinion %>
-<%#= @spot.comments[1].opinion %>
-
-
-<%= form_for @comments do |f| %>
-  <p><%= f.text_area :opinion, { placeholder: "Comments", size: "35x15" } %></p>
-  <%= f.hidden_field :user_id, { value: current_user.id } %>
-  <%= f.hidden_field :spot_id, { value: @spot.id } %>
-  <p><%= f.submit %></p>
+<!-- EDIT/DELETE COMMENT -->
+<h3>COMMENTS</h3>
+<% @spot.comments.each do |chatter| %>
+	<p><%= chatter.opinion %> by <%= chatter.user.username %> <%= chatter.user.created_at %></p>
+	<% unless chatter.user_id != current_user.id %>
+		<%= form_tag edit_comment_path, method: "GET" do %>
+		<%= hidden_field_tag(:comment_id, "#{chatter.id}") %>
+		<%= submit_tag "Edit" %>
+		<% end %>
+		<%= link_to "delete", "/comments/#{chatter.id}", method: :delete %>
+	<% end %>
 <% end %>
 
 <ul>
@@ -49,6 +48,7 @@
 
 
 <%#= link_to "LIKE", :action => "mod_flag", :user_id => "#{current_user.id}", :spot_id => "#{@spot.id}" %>
+
 
 
 
