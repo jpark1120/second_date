@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
 	end
 
 	def create
+		
 		Comment.create(comment_attributes)
 
 		redirect_to spot_path(comment_attributes[:spot_id])
@@ -34,7 +35,7 @@ class CommentsController < ApplicationController
 		comment_origin = comment.spot.id
 		comment.destroy
 
-		redirect_to "/spots/#{comment_origin}"
+		redirect_to spot_path(comment_origin)
 	end
 
 	private

@@ -38,7 +38,7 @@
 		<%#= hidden_field_tag(:comment_id, "#{chatter.id}") %>
 		<%#= submit_tag "Edit" %>
 		<%# end %>
-		<%= link_to "delete", "/comments/#{chatter.id}", method: :delete %>
+		<%= link_to "delete", spot_comment_path(:id, chatter.id), method: :delete %>
 	<% end %>
 <% end %>
 
