@@ -21,7 +21,7 @@ class FlagsController < ApplicationController
   private
 
   def flag_attributes
-  	params.require(:flag).permit(:spot_id, :user_id, :first_date)
+  	params.require(:flag).permit(:spot_id, :user_id, :first_date, :second_date, :third_date, :bad_date)
   end
 
 

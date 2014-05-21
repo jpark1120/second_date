@@ -26,10 +26,14 @@ Rails.application.routes.draw do
 	get "sign_up" => "users#new", :as => "sign_up"
 	resources :users
 	resources :sessions
-	resources :spots
-	resources :flags
-	resources :comments
-
+	resources :spots do
+		resources :flags
+		resources :comments
+	end
 
 end
-
+	# NESTED ROUTES
+	# resources :spots do
+	# 	resources :flags
+	# 	resources :comments
+	# end 

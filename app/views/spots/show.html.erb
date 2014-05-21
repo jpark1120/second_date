@@ -2,11 +2,14 @@
 
 <h2>LIKES: <%= @spot.flags.size %></h2>
 
-<%= form_for @flags do |f| %>
+<%= form_for "/spots/#{@spot.id}/flags", method: "POST" do |f| %>
   <%= f.hidden_field :first_date, { value: "true" } %>
+  <%= f.hidden_field :second_date, { value: "false" } %>
+  <%= f.hidden_field :third_date, { value: "false" } %>
+  <%= f.hidden_field :bad_date, { value: "false" } %>
   <%= f.hidden_field :user_id, { value: current_user.id } %>
   <%= f.hidden_field :spot_id, { value: @spot.id } %>
-  <%= f.submit "LIKE" %>
+  <%= f.submit "GOOD FOR FIRST DATE" %>
 <% end %>
 
 <%= flash.notice %>
@@ -20,11 +23,12 @@
 </ul>
 
 <!-- Create Comment -->
-<%= form_tag new_comment_path, method: "GET" do %>
-	<%= hidden_field_tag(:user_id, "#{current_user.id}") %>
-	<%= hidden_field_tag(:spot_id, "#{@spot.id}") %>
-	<%= submit_tag "Leave a Comment" %>
-<% end %>
+<%= link_to "Leave a Comment", "/spots/#{@spot.id}/comments/new" %>
+<%#= form_tag new_comment_path, method: "GET" do %>
+	<%#= hidden_field_tag(:user_id, "#{current_user.id}") %>
+	<%#= hidden_field_tag(:spot_id, "#{@spot.id}") %>
+	<%#= submit_tag "Leave a Comment" %>
+<%# end %>
 
 
 <!-- EDIT/DELETE COMMENT -->
@@ -32,11 +36,12 @@
 <% @spot.comments.each do |chatter| %>
 	<p><%= chatter.opinion %> by <%= chatter.user.username %> <%= chatter.user.created_at %></p>
 	<% unless chatter.user_id != current_user.id %>
-		<%= form_tag edit_comment_path, method: "GET" do %>
-		<%= hidden_field_tag(:comment_id, "#{chatter.id}") %>
-		<%= submit_tag "Edit" %>
-		<% end %>
-		<%= link_to "delete", "/comments/#{chatter.id}", method: :delete %>
+		<%= link_to "Edit", "/spots/#{@spot.id}/comments/#{chatter.id}/edit" %>
+		<%#= form_tag edit_comment_path, method: "GET" do %>
+			<%#= hidden_field_tag(:comment_id, "#{chatter.id}") %>
+			<%#= submit_tag "Edit" %>
+		<%# end %>
+		<%= link_to "Delete", "/spots/#{@spot.id}/comments/#{chatter.id}" %>
 	<% end %>
 <% end %>
 
