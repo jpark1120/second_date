@@ -29,9 +29,13 @@ class Spot < ActiveRecord::Base
     return date_spots_array
   end
 
+  def self.static_map(address)
+    url = "http://maps.googleapis.com/maps/api/staticmap?center=#{address.gsub(' ', '+')},New+York,NY&size=200x200&scale=2&key=#{GOOGLE_STATIC_KEY}"
+  end
+
 end
 
-
+#{@spot.address.gsub(' ', '+')}
 
 # venues = jsonresponse["response"]["groups"][0]["items"][5]["tips"][0]["text"]
 

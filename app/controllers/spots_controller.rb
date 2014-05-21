@@ -14,6 +14,8 @@ class SpotsController < ApplicationController
 
 		@spot = Spot.find(params[:id])
 
+		@address = Spot.static_map(@spot.address)
+
 		@flags = Flag.new
 
 		@comments = Comment.new
