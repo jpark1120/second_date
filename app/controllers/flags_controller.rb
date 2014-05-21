@@ -15,7 +15,7 @@ class FlagsController < ApplicationController
 		    flash[:notice] = "Liked!"
 		  end
 	  end
-	  redirect_to "/spots/#{spot.id}"
+	  redirect_to spot_path(flag_attributes[:spot_id])
   end
 
   private

@@ -2,7 +2,7 @@
 
 <h2>LIKES: <%= @spot.flags.size %></h2>
 
-<%= form_for @flags do |f| %>
+<%= form_for @flags, url: "/spots/:spot_id/flags" do |f| %>
   <%= f.hidden_field :first_date, { value: "true" } %>
   <%= f.hidden_field :user_id, { value: current_user.id } %>
   <%= f.hidden_field :spot_id, { value: @spot.id } %>
@@ -20,11 +20,12 @@
 </ul>
 
 <!-- Create Comment -->
-<%= form_tag new_comment_path, method: "GET" do %>
-	<%= hidden_field_tag(:user_id, "#{current_user.id}") %>
-	<%= hidden_field_tag(:spot_id, "#{@spot.id}") %>
-	<%= submit_tag "Leave a Comment" %>
-<% end %>
+<%= link_to "Leave a Comment", new_spot_comment_path(@spot.id) %>
+<%#= form_tag new_comment_path, method: "GET" do %>
+	<%#= hidden_field_tag(:user_id, "#{current_user.id}") %>
+	<%#= hidden_field_tag(:spot_id, "#{@spot.id}") %>
+	<%#= submit_tag "Leave a Comment" %>
+<%# end %>
 
 
 <!-- EDIT/DELETE COMMENT -->
@@ -32,10 +33,11 @@
 <% @spot.comments.each do |chatter| %>
 	<p><%= chatter.opinion %> by <%= chatter.user.username %> <%= chatter.user.created_at %></p>
 	<% unless chatter.user_id != current_user.id %>
-		<%= form_tag edit_comment_path, method: "GET" do %>
-		<%= hidden_field_tag(:comment_id, "#{chatter.id}") %>
-		<%= submit_tag "Edit" %>
-		<% end %>
+		<%= link_to "Edit", edit_spot_comment_path(@spot.id, chatter.id) %>
+		<%#= form_tag edit_comment_path, method: "GET" do %>
+		<%#= hidden_field_tag(:comment_id, "#{chatter.id}") %>
+		<%#= submit_tag "Edit" %>
+		<%# end %>
 		<%= link_to "delete", "/comments/#{chatter.id}", method: :delete %>
 	<% end %>
 <% end %>

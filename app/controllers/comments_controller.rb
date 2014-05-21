@@ -9,15 +9,13 @@ class CommentsController < ApplicationController
 	def create
 		Comment.create(comment_attributes)
 
-		redirect_to "/spots/#{comment_attributes[:spot_id]}"
+		redirect_to spot_path(comment_attributes[:spot_id])
 	end
 
 
 	def edit
 		# spot id -> params[:id]
-
-		@comment = Comment.find(params[:comment_id])
-
+		@comment = Comment.find(params[:id])
 	end
 
 	def update
@@ -25,8 +23,8 @@ class CommentsController < ApplicationController
 		comment = Comment.find(params[:id])
 
 		comment.update_attributes(comment_attributes)
-
-		redirect_to "/spots/#{comment_attributes[:spot_id]}"
+		
+		redirect_to spot_path(params[:spot_id])
 
 	end
 

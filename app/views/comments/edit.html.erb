@@ -1,6 +1,6 @@
-<%= form_for @comment do |f| %>
+<%= form_for(@comment, url: spot_comment_path) do |f| %>
   <p><%= f.text_area :opinion, { value: @comment.opinion , size: "35x15" } %></p>
-  <%= f.hidden_field :user_id, { value: current_user.id } %>
-  <%= f.hidden_field :spot_id, { value: @comment.spot.id} %>
+  <%#= f.hidden_field :user_id, { value: current_user.id } %>
+  <%#= f.hidden_field :spot_id, { value: @comment.spot.id} %>
   <p><%= f.submit %></p>
 <% end %>
