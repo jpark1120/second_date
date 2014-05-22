@@ -51,9 +51,10 @@ class Spot < ActiveRecord::Base
     if hello[1] == 0
       p "Give Feedback!"
     else
-    p "Best for #{hello[0].to_s.gsub('_', ' ').upcase}" 
+      p "Best for #{hello[0].to_s.gsub('_', ' ').upcase}" 
     end
   end 
+
 end
     # if self.flags.where(first_date:true).size > self.flags.where(second_date:true).size && self.flags.where(third_date:true).size && self.flags.where(bad_date:true).size
     #   p "good for first date"

@@ -1,0 +1,78 @@
+body {
+	background-color: #f1c40f;
+	font-family: 'Open Sans', sans-serif;
+}
+
+/* UTIL */
+.clear{
+	clear: both;
+}
+
+/*pg_container*/
+.pg_container{
+	width: 960px;
+	margin: 0 auto;
+	background-color: white;
+}
+
+/*pg_top*/
+.logo{
+	font-family: 'Damion', cursive;
+	/*font-family: 'Petit Formal Script', cursive;*/
+	/*font-family: 'Satisfy', cursive;*/
+	font-weight: bold;
+	font-size: 70px;
+	padding-top: 10px;
+	padding-left: 25px;
+}
+
+.user_nav{
+	font-weight: bold;
+	font-size: 20px;
+	text-align: right;
+	padding-right: 20px;
+	padding-bottom: 10px;
+}
+.user_nav a{
+	display: block;
+	text-decoration: none;
+}
+.logo h1 a{
+	text-decoration: none;
+	color: black;
+}
+.logo h1{
+	margin: -10px auto;
+	margin-bottom: -40px;
+	text-shadow:2px 2px 10px #e74c3c;
+}
+.logo p{
+	padding-left: 40px;
+	font-size: 25px;
+	width: 700px;
+}
+
+.emblem{
+	background-color: #e74c3c;
+	text-align: center;
+	font-size: 120px;
+}
+.emblem h1{
+	margin: 0 auto;
+}
+.content{
+	min-height: 500px;
+}
+.entrance{
+	text-align: center;
+	margin: 40px 0;
+}
+.entrance a{
+	font-family: 'Damion', cursive;
+	font-weight: bold;
+	font-size: 40px;
+	text-decoration: none;
+	background-color: #e74c3c;
+	padding: 10px;
+	border-radius: 20px;
+}
