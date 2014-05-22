@@ -1,14 +1,16 @@
-<h1>Hot Date Spots of East Village</h1>
 
-<ul>
-	<% @spots.each do |spot| %>
-		<li><%= link_to spot.name, "/spots/#{spot.id}" %></li>
-		<ul>
-			<li><%= spot.categorize %></li>
-			<li>Type: <%= spot.description %></li>
-			<li>Tip: <%= spot.tip %></li>
-		</ul>
-	<% end %>
-</ul>
+	<h1>Hot Date Spots of East Village</h1>
+
+	<ul>
+		<% @spots.each do |spot| %>
+			<li><%= link_to spot.name, "/spots/#{spot.id}" %></li>
+			<ul>
+				<li><%= spot.categorize %></li>
+				<li>Type: <%= spot.description %></li>
+				<li>Tip: <%= spot.tip %></li><br />
+			</ul>
+		<% end %>
+	</ul>
+
 
 

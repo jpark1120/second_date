@@ -1,6 +1,15 @@
 body {
-	background-color: #f1c40f;
 	font-family: 'Open Sans', sans-serif;
+	color: #1F0A1F;
+	background: #ffffb8; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffffb8 0%, #f7612e 50%, #ce623d 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffb8), color-stop(50%,#f7612e), color-stop(100%,#ce623d)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffffb8 0%,#f7612e 50%,#ce623d 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffffb8 0%,#f7612e 50%,#ce623d 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffffb8 0%,#f7612e 50%,#ce623d 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #ffffb8 0%,#f7612e 50%,#ce623d 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffb8', endColorstr='#ce623d',GradientType=0 ); /* IE6-9 */
+
 }
 
 /* UTIL */
@@ -12,7 +21,7 @@ body {
 .pg_container{
 	width: 960px;
 	margin: 0 auto;
-	background-color: white;
+	background-color: #F8F1F8;
 }
 
 /*pg_top*/
@@ -25,7 +34,10 @@ body {
 	padding-top: 10px;
 	padding-left: 25px;
 }
-
+img{
+	padding: 10px;
+	padding-top: 27px;
+}
 .user_nav{
 	font-weight: bold;
 	font-size: 20px;
@@ -39,7 +51,7 @@ body {
 }
 .logo h1 a{
 	text-decoration: none;
-	color: black;
+	color: #1F0A1F;
 }
 .logo h1{
 	margin: -10px auto;
@@ -67,7 +79,12 @@ body {
 	text-align: center;
 	margin: 40px 0;
 }
+.main_content a{
+	text-decoration: none;
+	font-size: 20px;
+}
 .entrance a{
+	color: #1F0A1F;
 	font-family: 'Damion', cursive;
 	font-weight: bold;
 	font-size: 40px;
@@ -76,3 +93,35 @@ body {
 	padding: 10px;
 	border-radius: 20px;
 }
+.main_content{
+	width: 850px;
+	margin: 0 auto;
+	padding-bottom: 15px;
+}
+.main_content ul li{
+	list-style: none;
+}
+
+.main_content form{
+	float: left;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+.info{
+	float: right;
+}
+.comments{
+	width: 700px;
+	margin: 0 auto;
+}
+.leave_comment{
+	text-align: right;
+	padding-right: 40px;
+}
+
+#FFFFB8
+#FF7575
+#993030
+
+
+
