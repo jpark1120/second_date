@@ -118,10 +118,18 @@ img{
 	text-align: right;
 	padding-right: 40px;
 }
-
-#FFFFB8
-#FF7575
-#993030
-
+input[type="submit"]{
+	font-family: 'Open Sans', sans-serif;
+	width: 150px;
+	font-size: 20px;
+	font-weight: bold;
+	background-color: #F8F1F8;
+	border:1px #F8F1F8 solid;
+	border-radius: 10px;
+	text-shadow:2px 2px 10px #e74c3c;
+}
+input[type="submit"]:hover{
+	color: red;
+}
 
 
