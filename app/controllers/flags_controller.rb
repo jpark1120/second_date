@@ -2,15 +2,15 @@ class FlagsController < ApplicationController
 
 	def new
 	
-		 render partial: "firstdate", locals: { first: @flags }
-		 render partial: "seconddate", locals: { second: @flags }
-		 render partial: "thirddate", locals: { third: @flags }
-		 render partial: "baddate", locals: { bad: @flags }
+		render partial: "firstdate", locals: { first: @flags }
+		render partial: "seconddate", locals: { second: @flags }
+		render partial: "thirddate", locals: { third: @flags }
+		render partial: "baddate", locals: { bad: @flags }
 	end
 
 
 	def create
-  spot = Spot.find(flag_attributes[:spot_id])
+		spot = Spot.find(flag_attributes[:spot_id])
 		
   	if spot.flags.empty? == true
 			Flag.create(flag_attributes)

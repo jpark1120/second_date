@@ -13,14 +13,14 @@ class User < ActiveRecord::Base
 	before_validation :downcase_email, :upcase_username
 
 	validates_confirmation_of :password
-  validates_presence_of :password, :on => :create
-  validates_presence_of :email
-  # validates_uniqueness_of :email
-  validates :username, :email, uniqueness: true
+	validates_presence_of :password, :on => :create
+	validates_presence_of :email
+	# validates_uniqueness_of :email
+	validates :username, :email, uniqueness: true
 
-  def downcase_email
-    self.email = email.downcase
-  end
+	def downcase_email
+	self.email = email.downcase
+	end
 
 	def upcase_username
 		self.username = username.upcase
