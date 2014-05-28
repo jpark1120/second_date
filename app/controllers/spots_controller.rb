@@ -18,9 +18,6 @@ class SpotsController < ApplicationController
 
 		@flags = Flag.new
 
-
-		@comments = Comment.new
-
 	end
 
 

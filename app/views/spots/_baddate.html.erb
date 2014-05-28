@@ -1,4 +1,4 @@
-<%= form_for bad, url: "/spots/:spot_id/flags" do |f| %>
+<%= form_for bad, url: spot_flags_path(@spot.id) do |f| %>
   <%= f.hidden_field :bad_date, { value: "true" } %>
   <%= f.hidden_field :user_id, { value: current_user.id } %>
   <%= f.hidden_field :spot_id, { value: @spot.id } %>

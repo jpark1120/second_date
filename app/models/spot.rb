@@ -8,8 +8,6 @@ class Spot < ActiveRecord::Base
 	has_many :comments
 
 
-
-
   # test to print out all the names 
 	def self.explore
     url =  "https://api.foursquare.com/v2/venues/explore?ll=40.732253,-73.987411&client_id=#{ENV["FOURSQUARE_CLIENT_ID"]}&client_secret=#{ENV["FOURSQUARE_CLIENT_SECRET"]}&v=20140518&query=date"

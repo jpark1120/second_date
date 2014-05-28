@@ -1,7 +1,11 @@
 class FlagsController < ApplicationController
 
 	def new
-	
+    # do I need this when I don't have a NEW page for flags?
+    # @spots = Spot.find(params[:spot_id])
+    # @flags = Flag.new
+    # session[:spot_id] = @spots.id
+
 		render partial: "firstdate", locals: { first: @flags }
 		render partial: "seconddate", locals: { second: @flags }
 		render partial: "thirddate", locals: { third: @flags }
@@ -10,6 +14,7 @@ class FlagsController < ApplicationController
 
 
 	def create
+
 		spot = Spot.find(flag_attributes[:spot_id])
 		
   	if spot.flags.empty? == true
@@ -33,6 +38,5 @@ class FlagsController < ApplicationController
   	params.require(:flag).permit(:spot_id, :user_id, :first_date, :second_date, :third_date, :bad_date)
   end
 
-
-
 end
+

@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 	get "log_out" => "sessions#destroy", :as => "log_out"
 	get "log_in" => "sessions#new", :as => "log_in"
 	get "sign_up" => "users#new", :as => "sign_up"
-	resources :sessions
+	resource :session, only: [:create, :destroy]
 
 
 
@@ -29,7 +29,7 @@ Rails.application.routes.draw do
 	resources :users, only: [:new, :create]
 	resources :spots, only: [:index, :show] do
 		resources :flags, only: [:new, :create]
-		resources :comments
+		resources :comments, except: [:index, :show]
 	end
 
 end

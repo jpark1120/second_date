@@ -1,9 +1,8 @@
-
 	<h1>Hot Date Spots of East Village</h1>
 
 	<ul>
 		<% @spots.each do |spot| %>
-			<li><%= link_to spot.name, "/spots/#{spot.id}" %></li>
+			<li><%= link_to spot.name, spot_path(spot.id) %></li>
 			<ul>
 				<li><%= spot.categorize %></li>
 				<li>Type: <%= spot.description %></li>
@@ -11,6 +10,3 @@
 			</ul>
 		<% end %>
 	</ul>
-
-
-
