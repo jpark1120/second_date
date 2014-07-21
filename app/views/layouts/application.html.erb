@@ -13,29 +13,26 @@
 <body>
 
 	<div class="pg_container">
+  	<div class="logo">
+  		<h1><%= link_to "Second Date", root_path %><h1>
+  		<p>We aren't here to walk you down the aile but we'll help you get to your second date.</p>
+  	</div>
 
-	<div class="logo">
-		<h1><%= link_to "Second Date", root_path %><h1>
-		<p>We aren't here to walk you down the aile but we'll help you get to your second date.</p>
-	</div>
+  	<div class="user_nav">
+  	  <% if current_user %>
+  	    Logged in as <%= current_user.username %>
+  	    <%= link_to "LOG OUT", log_out_path %>
+  	  <% else %>
+  	    <%= link_to "Sign up", sign_up_path %> or
+  	    <%= link_to "LOG IN", log_in_path %>
+  	  <% end %>
+  	</div>
 
-
-		<div class="user_nav">
-		  <% if current_user %>
-		    Logged in as <%= current_user.username %>
-		    <%= link_to "LOG OUT", log_out_path %>
-		  <% else %>
-		    <%= link_to "Sign up", sign_up_path %> or
-		    <%= link_to "LOG IN", log_in_path %>
-		  <% end %>
-		</div>
-	
-		<div class="content">
-			<div class="main_content">
-				<%= yield %>
-			</div>
-		</div>
-
+  	<div class="content">
+  		<div class="main_content">
+  			<%= yield %>
+  		</div>
+  	</div>
 	</div>
 </body>
 </html>

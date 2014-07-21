@@ -4,23 +4,15 @@ class SpotsController < ApplicationController
 	before_action :require_login
 
 	def index
-
 		@spots = Spot.all
-
 	end
 
 
 	def show
-
 		@spot = Spot.find(params[:id])
-
 		@address = Spot.static_map(@spot.address)
-
 		@flags = Flag.new
-
 	end
-
-
 
 end
 

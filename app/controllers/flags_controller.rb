@@ -23,7 +23,7 @@ class FlagsController < ApplicationController
 	  elsif spot.flags.empty? != true
 			intersection = spot.flags.ids & current_user.flags.ids
 			if intersection.empty? == false
-					flash[:notice] = "Already Voted!"
+				flash[:notice] = "Already Voted!"
 			else
 				Flag.create(flag_attributes)
 		    flash[:notice] = "Liked!"

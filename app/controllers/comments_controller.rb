@@ -7,7 +7,6 @@ class CommentsController < ApplicationController
 	end
 
 	def create
-
 		comment = Comment.new(comment_attributes)
 		comment.spot_id = session[:spot_id]
 		comment.user_id = current_user.id
@@ -25,13 +24,9 @@ class CommentsController < ApplicationController
 	end
 
 	def update
-
 		comment = Comment.find(params[:id])
-
 		comment.update_attributes(comment_attributes)
-		
 		redirect_to spot_path(params[:spot_id])
-
 	end
 
 
@@ -48,7 +43,5 @@ class CommentsController < ApplicationController
 	def comment_attributes
  		params.require(:comment).permit(:opinion)
 	end
-
-
 
 end

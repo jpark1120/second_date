@@ -21,9 +21,8 @@ class Spot < ActiveRecord::Base
       if venue["venue"]["likes"]["count"] > 100
         date_spots_array << venue
       end
-
     end
-
+    
     return date_spots_array
   end
 
