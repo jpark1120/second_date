@@ -27,5 +27,5 @@ Spot.create({
 end
 
 # restaurant["venue"]["categories"].each do |type|
-# 	 type["name"]
+#   type["name"]
 # end

@@ -10,8 +10,7 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
-
-
+  
   helper_method :current_user
 
   private
@@ -23,7 +22,7 @@ class ApplicationController < ActionController::Base
   # def authenticate_with_basic_auth
   #   unless @current_user
   #     authenticate_or_request_with_http_basic do |email, password|
- 
+
   #       @current_user = User.authenticated?(email, password)
 
   #     end
